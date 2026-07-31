@@ -1,0 +1,8 @@
+FROM docker.io/library/mariadb:11
+
+ENV MYSQL_ROOT_PASSWORD=rootpass
+ENV MYSQL_DATABASE=wordpress
+ENV MYSQL_USER=wpuser
+ENV MYSQL_PASSWORD=wppass
+
+EXPOSE 3306

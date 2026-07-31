@@ -1,0 +1,28 @@
+name: Podman Troubleshooting Lab
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate-repository:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check Podman
+        run: podman --version
+
+      - name: Show repository structure
+        run: ls -R
+
+      - name: Verify required files
+        run: |
+          test -f README.md
+          test -f backend/Dockerfile
+          test -f wordpress/Dockerfile
+          test -f frontend/Dockerfile
+          echo 'All required files exist.'
